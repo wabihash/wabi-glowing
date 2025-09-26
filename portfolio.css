@@ -1,0 +1,264 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+  font-size: 62.5%;
+   
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-navbar 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes show-navbar{
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+ .navbar {
+                gap: 20px;
+            }
+.navbar .logo{
+    font-size: 25px;
+    font-weight: 600;
+    
+}
+.navbar ul{
+
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+.logo{
+    margin-left: -10px;
+}
+
+
+ 
+
+.navbar ul li a{
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.navbar ul li:hover a ,.navbar ul li.active a{
+    color: #7cf03d 
+}
+.home{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 60px 10% 0;
+    color: white;
+     opacity: 0;
+    animation: show-navbar 1.5s linear forwards;
+    animation-delay: 1.6s;
+gap: 10px;
+}
+ .home-info h1{
+    font-size: 50px
+}
+ .home-info h2{
+    font-size: 32px;
+    margin-top: -12px;
+    display:inline-block;
+}
+ .home-info h2 span{
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke:0.7px #7cf03d;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+
+}
+.home-social{
+    margin-bottom: 10px;
+}
+@keyframes display-text{
+        25%,
+        100%{
+            display: none;
+        }  
+    }
+    
+.home-info h2 span::before{
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid #7cf03d;
+    color: #7cf03d;
+    white-space: nowrap;
+    overflow: hidden;
+    animation:fill-text 4s linear infinite ;
+}
+@keyframes fill-text{
+10%,
+100%
+{
+    width:0;
+}
+70%,
+90%{
+    width: 100%;
+}
+ 
+}
+
+
+    .home-info p{
+        margin: 20px 0 30px;
+        font-size: 18px;
+        color: #b0b3b8;
+        line-height: 1.6em;
+        max-width: 600px;
+    }
+.btn {
+      margin: 5px;
+        background: #7cf03d;
+      color: #1f242d;
+      padding: 12px 25px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+     font-weight: 600;
+    box-shadow: 0 0 10px #7cf03d;
+    transition: all 0.5s ease;
+    }
+    .btn:hover {
+      background: transparent;
+      color: #7cf03d;
+      box-shadow: none;
+    }
+.home-social{
+    display: flex;
+
+}
+.social-links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 20px;
+   
+}  
+.social-links a{
+    display: inline-block;
+    padding: 8px;
+    border:2px solid #7cf03d;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #7cf03d;
+    margin: 0 8px;
+} 
+.social-links a:hover{
+    background: #7cf03d;
+    color: black;
+    transition: all 0.3s ease;
+}
+.home-img .img-box{
+    width: 27vw;
+    height: 27vw;
+    border-radius: 50%;
+    margin-left: 100px;
+    padding: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    overflow: hidden;
+     
+}
+
+.home-img .img-box::before, .home-img .img-box::after{
+    content: '';
+    position: absolute;
+    width: 500px;    
+    height: 500px;
+    background: conic-gradient(transparent,transparent,transparent, #7cf03d);
+    transform:rotate(0deg);
+    animation:rotate-border 10s linear infinite;
+}
+.home-img .img-box::after{
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+
+
+.home-img .img-box .img-item{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; 
+
+}
+
+
+.home-img .img-box .img-item img{
+    width: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    mix-blend-mode: lighten;
+}
+ .bars-animation{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1 ;
+ }
+ .bars-animation .bar{
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    transform: translateY(-100%);
+    animation: show-bars 0.5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+ }
+ @keyframes show-bars{
+    100%{
+        transform: translateY(0%);
+    }
+ }
